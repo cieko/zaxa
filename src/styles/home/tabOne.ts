@@ -6,6 +6,8 @@ export const TabOneStyles = StyleSheet.create({
       backgroundColor: "white",
       padding: 10,
       borderRadius: 10,
+      flex: 1,
+      maxWidth: "50%",
     },
     title: {
       fontSize: 20,

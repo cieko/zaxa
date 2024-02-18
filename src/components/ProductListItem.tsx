@@ -1,21 +1,29 @@
 import { TabOneStyles } from "@/src/styles/home/tabOne";
-import { View, Text, Image, FlatList } from "react-native";
+import { Text, Image, Pressable } from "react-native";
+import { Product } from "../interface";
+
+import { Link } from "expo-router";
+
+const defaultPizzaImage =
+  "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/food/default.png";
 
 interface ProductListItemProps {
-  product: {
-    name: string;
-    price: number;
-    image: string;
-  };
+  product: Product;
 }
 
 const ProductListItem = (props: ProductListItemProps) => {
   return (
-    <View style={TabOneStyles.container}>
-      <Image source={{ uri: props.product.image }} style={TabOneStyles.image} />
-      <Text style={TabOneStyles.title}>{props.product.name}</Text>
-      <Text style={TabOneStyles.price}>${props.product.price}</Text>
-    </View>
+    <Link href={`/menu/${props.product.id}`} asChild>
+      <Pressable style={TabOneStyles.container}>
+        <Image
+          source={{ uri: props.product.image || defaultPizzaImage }}
+          style={TabOneStyles.image}
+          resizeMode="contain"
+        />
+        <Text style={TabOneStyles.title}>{props.product.name}</Text>
+        <Text style={TabOneStyles.price}>${props.product.price}</Text>
+      </Pressable>
+    </Link>
   );
 };
 
