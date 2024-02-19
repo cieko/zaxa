@@ -3,9 +3,7 @@ import { Text, Image, Pressable } from "react-native";
 import { Product } from "../interface";
 
 import { Link } from "expo-router";
-
-const defaultPizzaImage =
-  "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/food/default.png";
+import { defaultPizzaImage } from "../app/(tabs)";
 
 interface ProductListItemProps {
   product: Product;
